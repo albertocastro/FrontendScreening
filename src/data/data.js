@@ -67,14 +67,16 @@ const form = {
       type: 'select',
       label: 'State',
       id: 'state',
-      definition: 'Please provide your state', sourceList: states,
-      dependencies: { state: city => city && city.length !== 0 }
+      definition: 'Please provide your state', 
+      sourceList: states,
+      dependencies: { city: city => city && city.length !== 0 }
     },
     {
       type: 'select',
       label: 'Country',
       id: 'country',
-      definition: 'Please provide your country', sourceList: countries
+      definition: 'Please provide your country', 
+      sourceList: countries
     },
     {
       type: 'number',
@@ -84,12 +86,11 @@ const form = {
       definition: 'Please provide your zipcode',
       dependencies: {
         state: state => state && state.length !== 0,
-        country: country => country?.code === 'US' //polyfill me
+        country: country => country.code === 'US' //polyfill me
       }
     },
   ],
 };
 
-console.log('DATA', form);
 
-module.exports = form;
+export default form
